@@ -8,8 +8,10 @@
 [![Throughput](https://img.shields.io/badge/Throughput-%3E500k%20TPS-brightgreen.svg)](#performance-benchmarks)
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Interactive%20Dashboard-purple.svg)](https://Srinivas1610.github.io/SentriFlow/)
 
+👉 **[SentriFlow Live Interactive Demo Portal](https://Srinivas1610.github.io/SentriFlow/)**
 
 SentriFlow is a high-performance, edge-first transaction defense and threat assessment engine. It is designed to intercept and evaluate fraud vectors on real-time retail payment networks (like India's Unified Payments Interface - UPI) in sub-microsecond speeds. By utilizing a **three-tier cascading evaluation pipeline** running locally on-device and escalatable to the cloud, SentriFlow blocks fraudulent transfers *before* authorization without degrading checkout experiences or incurring runaway cloud costs.
+
 
 ---
 

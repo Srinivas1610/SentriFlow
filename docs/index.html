@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="SentriFlow - Sub-Microsecond Real-Time Transaction Defense for UPI Payments. Live simulator, benchmarks, and test runs.">
-  <title>SentriFlow | Sub-Microsecond Transaction Defense Portal</title>
+  <meta name="description" content="SentriFlow - Sub-Microsecond Real-Time Transaction Defense Engine for UPI Payments. Live stress-test simulation and benchmarks.">
+  <title>SentriFlow | Sub-Microsecond Real-Time Transaction Defense</title>
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
   
   <!-- Styling -->
   <link rel="stylesheet" href="style.css">
@@ -20,24 +20,19 @@
   <div class="glow-blob blob-1"></div>
   <div class="glow-blob blob-2"></div>
 
-  <!-- App Header -->
-  <header class="app-header">
+  <!-- Header -->
+  <header>
     <div class="header-container">
-      <div class="logo">
-        <svg class="icon icon-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-        </svg>
-        <span class="logo-text">sentriflow</span>
-        <span class="version-badge">v2.0.0</span>
+      <div class="logo" id="logo-branding">
+        <span class="logo-shield">🛡️</span>
+        <span class="logo-text">Sentri<span>Flow</span></span>
       </div>
-      <nav class="nav-links">
-        <a href="#about" class="nav-link">Overview</a>
-        <a href="#architecture" class="nav-link">Architecture</a>
+      <div class="header-links">
         <a href="#simulator" class="nav-link">Live Simulator</a>
-        <a href="#test-explorer" class="nav-link">Test Run</a>
+        <a href="#architecture" class="nav-link">Architecture</a>
         <a href="#benchmarks" class="nav-link">Benchmarks</a>
-        <a href="https://github.com/Srinivas1610/SentriFlow" target="_blank" class="nav-btn">GitHub</a>
-      </nav>
+        <a href="https://github.com/Srinivas1610/SentriFlow" target="_blank" class="nav-btn" id="github-link">GitHub Repository</a>
+      </div>
     </div>
   </header>
 
@@ -46,73 +41,142 @@
     <div class="hero-container">
       <div class="hero-badge">
         <span class="pulse-dot"></span>
-        <span class="badge-text">Engine Latency: 200ns p50</span>
+        <span class="badge-text">p50 Latency: 200ns (Sub-Microsecond)</span>
       </div>
-      <h1 class="hero-title">
+      <h1 class="hero-title" id="main-title">
         Real-Time Transaction Defense <br>
-        <span>Engine for UPI Payments</span>
+        <span>Engine for Retail Payments</span>
       </h1>
       <p class="hero-subtitle">
-        SentriFlow blocks digital payment fraud (Active voice call coercion, SMS Phishing, Mule accounts) locally on-device in sub-microseconds and escalates to Bedrock LLMs asynchronously.
+        SentriFlow blocks fraud vectors (Active voice call coercion, SMS Phishing, Mule accounts) on instant payment networks locally on-device and escalates to Bedrock LLM asynchronously.
       </p>
       <div class="hero-cta">
-        <a href="#simulator" class="cta-btn primary-btn">Run Live Stress-Test</a>
-        <a href="#test-explorer" class="cta-btn secondary-btn">Explore Test Cases</a>
+        <a href="#simulator" class="cta-btn primary-btn">Launch Live Simulator</a>
+        <a href="#architecture" class="cta-btn secondary-btn">View Architecture</a>
       </div>
     </div>
   </section>
 
-  <!-- Overview Section -->
-  <section id="about" class="about-section">
-    <div class="section-container">
+  <!-- Simulator Section -->
+  <section id="simulator" class="simulator-section">
+    <div class="simulator-container">
       <div class="section-header">
-        <h2 class="section-title">The UPI Fraud Problem Space</h2>
-        <p class="section-subtitle">Why traditional cloud-only fraud detection systems fail to protect instant payments.</p>
+        <h2 class="section-title">High-Throughput Stress-Test Simulator</h2>
+        <p class="section-subtitle">Simulate threat-evaluations on a 1,000,000 transaction dataset directly in your browser. Watch the telemetry tick live.</p>
       </div>
-      
-      <div class="about-grid">
-        <div class="about-card">
-          <div class="card-icon-wrapper text-red">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-            </svg>
+
+      <div class="simulator-grid">
+        <!-- Telemetry Stats Panel -->
+        <div class="simulator-card stats-card">
+          <h3 class="card-title">Live Telemetry Stats</h3>
+          
+          <div class="stats-grid">
+            <div class="stat-box">
+              <span class="stat-label">Processed Count</span>
+              <span class="stat-value" id="stat-processed">0</span>
+            </div>
+            
+            <div class="stat-box">
+              <span class="stat-label">Throughput (TPS)</span>
+              <span class="stat-value text-cyan" id="stat-tps">0.00</span>
+            </div>
+            
+            <div class="stat-box">
+              <span class="stat-label">Recall Rate (Fraud Catch)</span>
+              <span class="stat-value text-purple" id="stat-recall">0.00%</span>
+            </div>
+            
+            <div class="stat-box">
+              <span class="stat-label">False Positive Rate</span>
+              <span class="stat-value text-orange" id="stat-fpr">0.0000%</span>
+            </div>
           </div>
-          <h4>Voice Call Coercion</h4>
-          <p>Scammers guide victims over phone calls to input UPI PINs. SentriFlow intercepts active unknown calls in real time to block checkouts.</p>
+
+          <div class="bar-chart-container">
+            <span class="stat-label">Cascading Routing Tiers</span>
+            <div class="tier-bar-wrapper">
+              <div class="tier-bar-info">
+                <span>Safe (0-49)</span>
+                <span id="pct-safe">0%</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill bg-green" id="bar-safe" style="width: 0%"></div>
+              </div>
+            </div>
+
+            <div class="tier-bar-wrapper">
+              <div class="tier-bar-info">
+                <span>Soft Warning (50-79)</span>
+                <span id="pct-soft">0%</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill bg-yellow" id="bar-soft" style="width: 0%"></div>
+              </div>
+            </div>
+
+            <div class="tier-bar-wrapper">
+              <div class="tier-bar-info">
+                <span>Strong Warning (80-94)</span>
+                <span id="pct-strong">0%</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill bg-orange" id="bar-strong" style="width: 0%"></div>
+              </div>
+            </div>
+
+            <div class="tier-bar-wrapper">
+              <div class="tier-bar-info">
+                <span>Critical Delay (95-100)</span>
+                <span id="pct-critical">0%</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill bg-red" id="bar-critical" style="width: 0%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cloud-escalation-info">
+            <div class="esc-header">
+              <span>Cloud LLM Escalations</span>
+              <span class="badge-purple" id="stat-escalations-pct">0.00%</span>
+            </div>
+            <div class="esc-body">
+              Total Escalations: <span id="stat-escalations-count" class="bold">0</span> / 1,000,000
+            </div>
+          </div>
         </div>
 
-        <div class="about-card">
-          <div class="card-icon-wrapper text-orange">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-              <polyline points="22,6 12,13 2,6"/>
-            </svg>
+        <!-- Terminal Console Panel -->
+        <div class="simulator-card console-card">
+          <div class="console-header">
+            <div class="console-buttons">
+              <span class="c-btn red-btn"></span>
+              <span class="c-btn yellow-btn"></span>
+              <span class="c-btn green-btn"></span>
+            </div>
+            <div class="console-title">sentriflow@bench: ~</div>
+            <div class="console-engine-mode" id="console-mode">Engine: Python/C++</div>
           </div>
-          <h4>SMS Phishing Scams</h4>
-          <p>Malicious links trigger automated UPI requests. Our on-device TFLite TinyBERT model runs NLP classification locally to score text threats.</p>
+          
+          <div class="console-body" id="console-log">
+            <div class="console-line text-gray">SentriFlow Telemetry console initialized.</div>
+            <div class="console-line text-gray">Click "Run Stress-Test" below to simulate 1M transaction stream.</div>
+          </div>
         </div>
+      </div>
 
-        <div class="about-card">
-          <div class="card-icon-wrapper text-purple">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
-              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-            </svg>
+      <!-- Controls and Progress -->
+      <div class="simulator-controls">
+        <div class="controls-progress-wrapper">
+          <div class="progress-bar-container">
+            <div class="progress-bar-fill" id="main-progress-bar" style="width: 0%"></div>
           </div>
-          <h4>Mule Accounts</h4>
-          <p>Fraud syndicates cash out funds rapidly. SentriFlow cross-checks transaction recipients against high-velocity and trust scores.</p>
+          <span class="progress-pct-label" id="main-progress-label">0.0%</span>
         </div>
-
-        <div class="about-card">
-          <div class="card-icon-wrapper text-cyan">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10"/>
-              <line x1="12" y1="8" x2="12" y2="12"/>
-              <line x1="12" y1="16" x2="12.01" y2="16"/>
-            </svg>
-          </div>
-          <h4>Latency & Cost Bottleneck</h4>
-          <p>Cloud round-trips take 2-3 seconds, ruining checkout flow. We utilize a local C++ rule hot-loop taking only 200ns, keeping cloud review &lt; 0.3%.</p>
+        
+        <div class="controls-btn-group">
+          <button class="btn control-btn run-btn" id="btn-run" onclick="startStressTest()">Run Stress-Test</button>
+          <button class="btn control-btn reset-btn" id="btn-reset" onclick="resetStressTest()" disabled>Reset</button>
         </div>
       </div>
     </div>
@@ -120,19 +184,20 @@
 
   <!-- Architecture Section -->
   <section id="architecture" class="architecture-section">
-    <div class="section-container">
+    <div class="architecture-container">
       <div class="section-header">
         <h2 class="section-title">The 3-Tier Cascading Threat Engine</h2>
-        <p class="section-subtitle">How SentriFlow partitions workload between edge devices and the cloud for optimized defense.</p>
+        <p class="section-subtitle">How SentriFlow achieves sub-microsecond evaluations without sacrificing contextual reasoning accuracy.</p>
       </div>
 
       <div class="architecture-grid">
+        <!-- Tier 1 -->
         <div class="arch-card">
           <div class="arch-number">Tier 1</div>
           <h3 class="arch-title">On-Device Heuristics</h3>
           <div class="arch-metric">Latency: 200ns | Cost: $0.00</div>
           <p class="arch-desc">
-            Runs deterministically on the client device. Checks active call status, new recipient limits, and community flags to construct a baseline risk rating instantly.
+            Evaluates call states, community flags, and new recipient transaction records locally on-device. Utilizes a compiled C++ hot-loop evaluator in benchmarks to process files at 50M+ TPS.
           </p>
           <ul class="arch-list">
             <li>Checks active unknown call status</li>
@@ -141,12 +206,13 @@
           </ul>
         </div>
 
+        <!-- Tier 2 -->
         <div class="arch-card">
           <div class="arch-number">Tier 2</div>
-          <h3 class="arch-title">On-Device NLP (TinyBERT)</h3>
+          <h3 class="arch-title">On-Device NLP Classifier</h3>
           <div class="arch-metric">Latency: 50ms | Cost: $0.00</div>
           <p class="arch-desc">
-            Runs background NLP classification on incoming SMS. Detects phishing link messages, OTP theft prompts, and bank spoofing alerts without exposing private data.
+            Runs a quantized TinyBERT NLP model inside the Android client background. Contextually evaluates incoming SMS messages to identify OTP theft, phishing link patterns, and social engineering setups.
           </p>
           <ul class="arch-list">
             <li>Local model inference</li>
@@ -155,6 +221,7 @@
           </ul>
         </div>
 
+        <!-- Tier 3 -->
         <div class="arch-card">
           <div class="arch-number">Tier 3</div>
           <h3 class="arch-title">Cloud LLM Escalation</h3>
@@ -172,188 +239,12 @@
     </div>
   </section>
 
-  <!-- Live Simulator Section -->
-  <section id="simulator" class="simulator-section">
-    <div class="section-container">
-      <div class="section-header">
-        <h2 class="section-title">Live 1,000,000 Transaction Simulator</h2>
-        <p class="section-subtitle">Run a high-throughput stress-test simulation and watch the telemetry calculations stream live.</p>
-      </div>
-
-      <div class="bench-body">
-        <div class="bench-stats-grid">
-          <div class="bench-stat-box">
-            <span class="bench-stat-label">Transactions Processed</span>
-            <span class="bench-stat-val font-mono" id="bench-processed">0</span>
-          </div>
-          <div class="bench-stat-box">
-            <span class="bench-stat-label">Live Throughput (TPS)</span>
-            <span class="bench-stat-val font-mono text-cyan" id="bench-tps">0.00</span>
-          </div>
-          <div class="bench-stat-box">
-            <span class="bench-stat-label">Fraud Recall Rate</span>
-            <span class="bench-stat-val font-mono text-purple" id="bench-recall">0.00%</span>
-          </div>
-          <div class="bench-stat-box">
-            <span class="bench-stat-label">False Positive Rate</span>
-            <span class="bench-stat-val font-mono text-orange" id="bench-fpr">0.0000%</span>
-          </div>
-        </div>
-
-        <div class="bench-progress-wrapper">
-          <div class="bench-progress-track">
-            <div class="bench-progress-fill" id="bench-progress-bar"></div>
-          </div>
-          <span class="bench-progress-label font-mono" id="bench-progress-label">0.0%</span>
-        </div>
-
-        <div class="simulator-controls-row">
-          <button class="btn btn-run" id="btn-run" onclick="startStressTest()">Run Stress-Test</button>
-          <button class="btn btn-reset" id="btn-reset" onclick="resetStressTest()" disabled>Reset</button>
-        </div>
-
-        <!-- Terminal Shell -->
-        <div class="bench-console">
-          <div class="console-head">
-            <div class="console-head-dots">
-              <span class="dot d-red"></span>
-              <span class="dot d-yellow"></span>
-              <span class="dot d-green"></span>
-            </div>
-            <span class="console-head-title">sentriflow@sim: ~</span>
-            <span class="console-head-mode">Engine: NumPy Vectorized</span>
-          </div>
-          <div class="console-body" id="bench-console-log">
-            <div class="console-txt text-gray">Telemetry console initialized. Ready to simulate.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Automated Test Explorer Section -->
-  <section id="test-explorer" class="test-explorer-section">
-    <div class="section-container">
-      <div class="section-header">
-        <h2 class="section-title">Automated Test Run Dashboard</h2>
-        <p class="section-subtitle">Inspect the test cases, expected assertions, and execution logs from our latest test run.</p>
-      </div>
-
-      <!-- Dashboard Layout -->
-      <div class="workspace-layout">
-        
-        <!-- Left Panel: Test Case Table -->
-        <div class="workspace-left">
-          <div class="filter-header">
-            <div class="search-box-wrapper">
-              <svg class="icon search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="11" cy="11" r="8"/>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-              </svg>
-              <input type="text" id="search-input" placeholder="Search by test name, ID, or tag..." oninput="handleSearchFilter()">
-            </div>
-            
-            <div class="filter-tabs">
-              <button class="filter-tab active" id="tab-all" onclick="filterByStatus('all')">All</button>
-              <button class="filter-tab" id="tab-passed" onclick="filterByStatus('passed')">
-                <span class="dot-indicator dot-passed"></span> Passed
-              </button>
-              <button class="filter-tab" id="tab-failed" onclick="filterByStatus('failed')">
-                <span class="dot-indicator dot-failed"></span> Failed
-              </button>
-              <button class="filter-tab" id="tab-flaky" onclick="filterByStatus('flaky')">
-                <span class="dot-indicator dot-flaky"></span> Flaky
-              </button>
-            </div>
-          </div>
-
-          <div class="table-container">
-            <table class="cases-table" id="cases-table">
-              <thead>
-                <tr>
-                  <th>Status</th>
-                  <th>Test ID & Name</th>
-                  <th>Category</th>
-                  <th class="align-right">Duration</th>
-                  <th class="align-right">Asserts</th>
-                </tr>
-              </thead>
-              <tbody id="test-cases-body">
-                <!-- Dynamically populated rows -->
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- Right Panel: Collapsible Details Drawer -->
-        <div class="workspace-right" id="detail-drawer">
-          <div class="drawer-empty-state" id="drawer-empty">
-            <svg class="icon empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <rect x="3" y="3" width="18" height="18" rx="2"/>
-              <path d="M21 12H3M12 3v18"/>
-            </svg>
-            <p>Select a test case from the list to inspect execution payloads, assertions, and logs.</p>
-          </div>
-
-          <div class="drawer-content hidden" id="drawer-content">
-            <div class="drawer-header">
-              <div class="drawer-title-row">
-                <span class="badge" id="detail-test-id">SF-SMS-001</span>
-                <h3 class="drawer-title" id="detail-test-name">Verify local heuristic score</h3>
-              </div>
-              <div class="drawer-meta-row">
-                <span class="status-badge" id="detail-status-badge">PASSED</span>
-                <span class="duration-label" id="detail-duration-label">0.18 ms</span>
-              </div>
-            </div>
-
-            <!-- Drawer Tabs -->
-            <div class="detail-tabs">
-              <button class="detail-tab active" id="det-tab-payload" onclick="switchDetailTab('payload')">Payload</button>
-              <button class="detail-tab" id="det-tab-assertions" onclick="switchDetailTab('assertions')">Assertions</button>
-              <button class="detail-tab" id="det-tab-logs" onclick="switchDetailTab('logs')">Logs</button>
-              <button class="detail-tab" id="det-tab-flow" onclick="switchDetailTab('flow')">Flow</button>
-            </div>
-
-            <!-- Tab Content Pane: Payload -->
-            <div class="tab-pane" id="pane-payload">
-              <div class="code-header">
-                <span class="code-lang">JSON INPUT PAYLOAD</span>
-                <button class="btn-copy" onclick="copyPayloadToClipboard()">Copy Payload</button>
-              </div>
-              <pre class="code-block"><code class="font-mono" id="detail-payload-code">{}</code></pre>
-            </div>
-
-            <!-- Tab Content Pane: Assertions -->
-            <div class="tab-pane hidden" id="pane-assertions">
-              <div class="assertions-list" id="detail-assertions-list">
-                <!-- Dynamic assertions list -->
-              </div>
-            </div>
-
-            <!-- Tab Content Pane: Logs -->
-            <div class="tab-pane hidden" id="pane-logs">
-              <pre class="log-block font-mono" id="detail-logs-block"></pre>
-            </div>
-
-            <!-- Tab Content Pane: Flow -->
-            <div class="tab-pane hidden" id="pane-flow">
-              <div class="flow-chart-wrapper" id="detail-flow-container">
-                <!-- SVG Flow Diagram -->
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Performance Benchmarks Section -->
+  <!-- Benchmarks Section -->
   <section id="benchmarks" class="benchmarks-section">
-    <div class="section-container">
+    <div class="benchmarks-container">
       <div class="section-header">
         <h2 class="section-title">Verified Performance Benchmarks</h2>
-        <p class="section-subtitle">Telemetry outputs captured from stress-testing the engine on 1,000,000 UPI payments.</p>
+        <p class="section-subtitle">Actual telemetry captured from stress-testing the engine on 1,000,000 simulated transactions.</p>
       </div>
 
       <div class="bench-table-wrapper">
@@ -421,12 +312,12 @@
     </div>
   </section>
 
-  <!-- Developer Quickstart Section -->
+  <!-- Quickstart Section -->
   <section class="quickstart-section">
-    <div class="section-container">
+    <div class="quickstart-container">
       <div class="section-header">
         <h2 class="section-title">Developer Quickstart</h2>
-        <p class="section-subtitle">Get the benchmark and stress-testing suite running locally in minutes.</p>
+        <p class="section-subtitle">Get the benchmark suite running locally on your computer in minutes.</p>
       </div>
 
       <div class="terminal-mock">
@@ -456,16 +347,10 @@
   </section>
 
   <!-- Footer -->
-  <footer class="app-footer">
+  <footer>
     <div class="footer-container">
-      <div class="footer-left">
-        <span>&copy; 2026 SentriFlow Engine. Licensed under the MIT License.</span>
-      </div>
-      <div class="footer-right">
-        <a href="https://github.com/Srinivas1610/SentriFlow" target="_blank" class="footer-link">Repository</a>
-        <span class="footer-dot"></span>
-        <a href="SETUP_INSTRUCTIONS.md" class="footer-link">Setup Guide</a>
-      </div>
+      <p>&copy; 2026 SentriFlow Engine. Licensed under the <a href="https://github.com/Srinivas1610/SentriFlow/blob/master/LICENSE" target="_blank">MIT License</a>.</p>
+      <p>Mock app & simulation — Created for performance defense research.</p>
     </div>
   </footer>
 
